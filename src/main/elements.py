@@ -29,7 +29,7 @@ class Beam:
 		self.prevrate = 0.0
 		
 	def update(self, nodelist, dt):
-		no1 = nodelist[self.n1]
+		no1 = nodelist[self.n1] # In C++ will propably just store pointers in self.n1 and self.n2 place which will make no need for taking in nodelist;)
 		no2 = nodelist[self.n2]
 		distance = ((no1.position[0] - no2.position[0]) ** 2 + (no1.position[1] - no2.position[1]) ** 2 + (no1.position[2] - no2.position[2]) ** 2) ** 0.5
 		rate = distance - self.length
