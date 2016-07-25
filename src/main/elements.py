@@ -36,4 +36,6 @@ class Beam:
 		force = self.stiffness * rate
 		damp = (rate - self.prevrate) / dt * self.damping
 		net = force + damp
-		return net
+		unit = [(no1.position[0] - no2.position[0]) / distance, (no1.position[1] - no2.position[1]) / distance, (no1.position[2] - no2.position[2]) / distance]
+		no1.apply_force([unit[0] * force, unit[1] * force, unit[2] * force])
+		no2.apply_force([-unit[0] * force, -unit[1] * force, -unit[2] * force])
